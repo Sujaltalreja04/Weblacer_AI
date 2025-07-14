@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -27,25 +26,21 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="relative">
-        <CustomCursor />
-        {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-        
-        <div className={`${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-1000`}>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/founders" element={<Founders />} />
-          </Routes>
-          <Footer />
-        </div>
+    <div className="relative">
+      <CustomCursor />
+      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      
+      <div className={`${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-1000`}>
+        <Navbar />
+        <Home />
+        <About />
+        <Services />
+        <Contact />
+        <Admin />
+        <Founders />
+        <Footer />
       </div>
-    </Router>
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { ChevronDown, ArrowRight, Globe, Zap, Shield, Building, Users, Award, TrendingUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import TechBackground from '../components/TechBackground';
 import CornerTechModels from '../components/CornerTechModels';
 import { useInView } from 'react-intersection-observer';
@@ -159,14 +159,14 @@ const Home: React.FC = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <Link 
-              to="/services"
+              href="/services"
               className="group px-10 py-5 bg-[#B5FF6D] text-black font-bold rounded-lg hover:bg-[#A3E85C] transform hover:scale-105 transition-all duration-300 flex items-center space-x-3"
             >
               <span>Start Your Project</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
             <Link 
-              to="/about"
+              href="/about"
               className="px-10 py-5 border-2 border-[#8A9A5B] text-white font-bold rounded-lg hover:border-[#B5FF6D] hover:text-[#B5FF6D] transform hover:scale-105 transition-all duration-300"
             >
               Learn More

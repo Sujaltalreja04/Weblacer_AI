@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Menu, X, Building } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const router = useRouter();
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -15,7 +16,7 @@ const Navbar: React.FC = () => {
     { name: 'Founders', path: '/founders' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => router.pathname === path;
 
   return (
     <motion.nav
@@ -27,7 +28,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link href="/" className="flex items-center space-x-3 group">
             <div className="w-12 h-12 bg-[#B5FF6D] rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 overflow-hidden">
               <img src="https://i.postimg.cc/DwwNNDsr/Whats-App-Image-2025-06-26-at-17-33-59-a813e2b2.jpg" alt="Logo" className="w-10 h-10 object-contain" />
             </div>
@@ -44,7 +45,7 @@ const Navbar: React.FC = () => {
             {navItems.map((item) => (
               <Link
                 key={item.name}
-                to={item.path}
+                href={item.path}
                 className={`relative px-4 py-2 font-semibold transition-all duration-300 ${
                   isActive(item.path)
                     ? 'text-[#B5FF6D]'
@@ -59,7 +60,7 @@ const Navbar: React.FC = () => {
             ))}
             
             <Link
-              to="/services"
+              href="/services"
               className="px-6 py-3 bg-[#B5FF6D] text-black font-bold rounded-lg hover:bg-[#A3E85C] transform hover:scale-105 transition-all duration-300"
             >
               Get Started
@@ -82,7 +83,7 @@ const Navbar: React.FC = () => {
               {navItems.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.path}
+                  href={item.path}
                   onClick={() => setIsOpen(false)}
                   className={`block px-4 py-2 font-semibold transition-colors duration-300 ${
                     isActive(item.path)
@@ -94,7 +95,7 @@ const Navbar: React.FC = () => {
                 </Link>
               ))}
               <Link
-                to="/services"
+                href="/services"
                 onClick={() => setIsOpen(false)}
                 className="block w-full px-6 py-3 bg-[#B5FF6D] text-black font-bold rounded-lg hover:bg-[#A3E85C] text-center transition-colors duration-300"
               >

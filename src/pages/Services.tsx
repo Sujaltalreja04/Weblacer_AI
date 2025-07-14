@@ -5,7 +5,7 @@ import { Code, Palette, Smartphone, Video, Share2, Star, Check, ArrowRight, Zap,
 import TechBackground from '../components/TechBackground';
 import CornerTechModels from '../components/CornerTechModels';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useForm, ValidationError } from '@formspree/react';
 
 function PlanModal({ open, onClose, subject }: { open: boolean, onClose: () => void, subject: string }) {
