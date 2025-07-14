@@ -158,7 +158,7 @@ const Projects: React.FC = () => {
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div 
-                ref={el => cardRefs.current[index] = el} 
+                ref={el => { cardRefs.current[index] = el; }} 
                 onMouseMove={e => handleMouseMove(e, index)} 
                 onMouseLeave={() => handleMouseLeave(index)} 
                 className="relative bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 group-hover:border-[#B5FF6D] transition-all duration-500 transform group-hover:rotateY-3 group-hover:scale-105"
